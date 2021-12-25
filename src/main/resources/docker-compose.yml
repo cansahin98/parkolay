@@ -1,0 +1,9 @@
+version: '2'
+services:
+  mysql:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: parkkolay
+    ports:
+      - '3306:3306'

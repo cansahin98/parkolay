@@ -2,6 +2,7 @@ package com.example.bitirme.projesi.parkolay.bean.User;
 
 import com.example.bitirme.projesi.parkolay.dto.ResponsePayload;
 import com.example.bitirme.projesi.parkolay.dto.ResponsePayloadDTO.AbstractResponsePayload;
+import com.example.bitirme.projesi.parkolay.entity.User;
 import com.example.bitirme.projesi.parkolay.repo.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,14 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class FindUserBean extends AbstractResponsePayload {
 
-    //private final UserRepository repo;
+    private final UserRepository repo;
 
 
     @Transactional
     public ResponsePayload login(String mail, String password) {
-        //repo.findAll();
+        Iterable<User> user = repo.findAll();
+        System.out.println(user);
+       repo.findAll();
         return null;
     }
 }
