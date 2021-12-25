@@ -1,7 +1,10 @@
 package com.example.bitirme.projesi.parkolay.service;
 
-import com.example.bitirme.projesi.parkolay.dto.ResponsePayload;
+import com.example.bitirme.projesi.parkolay.dto.UserDTO;
+import com.example.bitirme.projesi.parkolay.entity.User;
 
 public interface UserService {
-    ResponsePayload login(String mail, String password);
+    User login(String mail, String password);
+
+    User saveUser(UserDTO userDTO);
 }

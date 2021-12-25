@@ -1,6 +1,5 @@
 package com.example.bitirme.projesi.parkolay.dto.ResponsePayloadDTO;
 
-import com.example.bitirme.projesi.parkolay.dto.ResponsePayload;
 import com.example.bitirme.projesi.parkolay.enumeration.ResponseEnum;
 
 public class AbstractResponsePayload {
