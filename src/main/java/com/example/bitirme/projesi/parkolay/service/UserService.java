@@ -10,7 +10,12 @@ public interface UserService {
 
     User saveUser(UserDTO userDTO);
 
-    User changePassword(Long userId, String mail, String password, String newPassword);
+    User changePassword(Long userId, String newPassword);
 
     Optional<User> findUser(Long id);
+
+    User findUserByMail(String mail);
 }
+
+
+

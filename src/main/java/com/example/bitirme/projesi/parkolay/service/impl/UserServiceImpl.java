@@ -19,10 +19,16 @@ public class UserServiceImpl implements UserService {
     private final UserRepository repo;
     private final UserDTOMapper mapper;
 
+
     @Override
     public Optional<User> findUser(Long id)
     {
         return repo.findById(id);
+    }
+
+    @Override
+    public User findUserByMail(String mail) {
+        return repo.findByMail(mail);
     }
 
     @Override
@@ -36,7 +42,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User changePassword(Long userId, String mail, String password, String newPassword) {
+    public User changePassword(Long userId, String newPassword) {
         Optional<User> user = findUser(userId);
         if (user != null)
         {

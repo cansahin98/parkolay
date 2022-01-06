@@ -2,7 +2,6 @@ package com.example.bitirme.projesi.parkolay.dto;
 
 import com.example.bitirme.projesi.parkolay.entity.ParkingLot;
 import com.example.bitirme.projesi.parkolay.entity.ParkingSpace;
-import com.example.bitirme.projesi.parkolay.entity.User;
 import com.example.bitirme.projesi.parkolay.mapper.ParkingSpaceDTOMapper;
 import lombok.Getter;
 import org.apache.commons.lang3.builder.EqualsBuilder;

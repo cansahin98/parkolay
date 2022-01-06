@@ -1,9 +1,7 @@
 package com.example.bitirme.projesi.parkolay.mapper;
 
 import com.example.bitirme.projesi.parkolay.dto.ParkingHistoryDTO;
-import com.example.bitirme.projesi.parkolay.dto.UserDTO;
 import com.example.bitirme.projesi.parkolay.entity.ParkingHistory;
-import com.example.bitirme.projesi.parkolay.entity.User;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

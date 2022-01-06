@@ -1,7 +1,6 @@
 package com.example.bitirme.projesi.parkolay.dto;
 
 import com.example.bitirme.projesi.parkolay.entity.LicensePlate;
-import com.example.bitirme.projesi.parkolay.entity.Payment;
 import lombok.Getter;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
