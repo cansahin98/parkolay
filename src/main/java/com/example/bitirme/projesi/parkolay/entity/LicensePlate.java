@@ -15,4 +15,6 @@ public class LicensePlate {
     @Column(name = "license_plate_data")
     private String licensePlateData;
 
+
+
 }
