@@ -1,5 +1,6 @@
 package com.example.bitirme.projesi.parkolay.entity;
 
+import com.mysql.cj.jdbc.BlobFromLocator;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @Getter
 public class LicensePlate {
     @Id
-    private long id;
+    private Long id;
     @Column(name = "license_plate_data")
     private String licensePlateData;
 

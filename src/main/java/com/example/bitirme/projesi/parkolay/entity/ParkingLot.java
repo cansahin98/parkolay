@@ -13,13 +13,9 @@ import java.util.Date;
 @Getter
 public class ParkingLot {
     @Id
-    private long id;
+    private Long id;
     private String name;
     @Column(name = "price_by_hour")
     private int priceByHour;
     private String location;
-    @ManyToOne
-    @JoinColumn(name = "parking_space_id")
-    private ParkingSpace parkingSpace;
-
 }

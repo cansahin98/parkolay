@@ -17,7 +17,6 @@ public class UserDTOMapper {
                 .password(user.getPassword())
                 .name(user.getName())
                 .isParked(user.isParked())
-                .parkingLot(user.getParkingLot())
                 .payment(user.getPayment())
                 .build();
     }

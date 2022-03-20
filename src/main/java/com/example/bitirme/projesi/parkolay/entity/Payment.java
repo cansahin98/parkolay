@@ -15,7 +15,7 @@ import java.util.Date;
 @Getter
 public class Payment {
     @Id
-    private long id;
+    private Long id;
     @Column(name = "card_number")
     private int cardNumber;
     @Column(name = "written_name")

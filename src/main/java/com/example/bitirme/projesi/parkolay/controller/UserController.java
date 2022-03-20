@@ -4,12 +4,17 @@ package com.example.bitirme.projesi.parkolay.controller;
 import com.example.bitirme.projesi.parkolay.dto.ResponsePayloadDTO.AbstractResponsePayload;
 import com.example.bitirme.projesi.parkolay.dto.ResponsePayloadDTO.ResponsePayload;
 import com.example.bitirme.projesi.parkolay.dto.UserDTO;
+import com.example.bitirme.projesi.parkolay.entity.ParkingLot;
 import com.example.bitirme.projesi.parkolay.entity.User;
 import com.example.bitirme.projesi.parkolay.enumeration.ResponseEnum;
+import com.example.bitirme.projesi.parkolay.service.ParkingLotService;
 import com.example.bitirme.projesi.parkolay.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
+
 //http://localhost:8080/user/login
 @RestController
 @RequestMapping("/user")
@@ -17,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 public class UserController extends AbstractResponsePayload {
     private final UserService userService;
+    private final ParkingLotService parkingLotService;
     //private final UserDTOMapper mapper;
 
     @PostMapping(value = "/login")
@@ -78,5 +84,12 @@ public class UserController extends AbstractResponsePayload {
         }
         return getResponse(ResponseEnum.WARNING,"Şifre Değiştirilemedi!!");
     }
+
+    @GetMapping(value = "/find-saved-parking-lot")
+    public ResponsePayload findParkingLotByUserId(@RequestParam Long userId)
+    {
+        return getResponse(userService.findParkingLotByUserId(userId));
+    }
+
 
 }

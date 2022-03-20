@@ -18,9 +18,6 @@ public class User {
     @Column(name = "is_parked")
     private boolean isParked;
     @ManyToOne
-    @JoinColumn(name = "saved_parking_lot_id")
-    private ParkingLot parkingLot;
-    @ManyToOne
     @JoinColumn(name = "payment_id")
     private Payment payment;
 

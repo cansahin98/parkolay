@@ -13,7 +13,6 @@ public class ParkingLotDTO {
     private String name;
     private int priceByHour;
     private String location;
-    private ParkingSpaceDTO parkingSpace;
 
     public ParkingLotDTO() {
     }
@@ -23,7 +22,6 @@ public class ParkingLotDTO {
         this.name = builder.name;
         this.priceByHour = builder.priceByHour;
         this.location = builder.location;
-        this.parkingSpace = builder.parkingSpace;
     }
 
     @Override
@@ -41,7 +39,6 @@ public class ParkingLotDTO {
         private String name;
         private int priceByHour;
         private String location;
-        private ParkingSpaceDTO parkingSpace;
 
         private Builder() {
         }
@@ -50,7 +47,6 @@ public class ParkingLotDTO {
             this.name = parkingLotDTO.name;
             this.priceByHour = parkingLotDTO.priceByHour;
             this.location = parkingLotDTO.location;
-            this.parkingSpace = parkingLotDTO.parkingSpace;
         }
 
         public static Builder ParkingLotWith() {
@@ -77,15 +73,6 @@ public class ParkingLotDTO {
             this.location = location;
             return this;
         }
-        public Builder parkingSpace(final ParkingSpace parkingSpace) {
-            if(parkingSpace == null){
-                this.parkingSpace = null;
-                return this;
-            }
-            ParkingSpaceDTOMapper mapper = new ParkingSpaceDTOMapper();
-            this.parkingSpace = mapper.map(parkingSpace);
-            return this;
-        }
 
         public ParkingLot convertToEntity(ParkingLotDTO parkingLotDTO)
         {
@@ -94,15 +81,6 @@ public class ParkingLotDTO {
             parkingLot.setName(parkingLotDTO.name);
             parkingLot.setPriceByHour(parkingLotDTO.priceByHour);
             parkingLot.setLocation(parkingLotDTO.location);
-            //parkingSpace
-
-            if (parkingLotDTO.getParkingSpace() == null)
-            {
-                parkingLot.setParkingSpace(null);
-            }else {
-                ParkingSpaceDTOMapper mapper = new ParkingSpaceDTOMapper();
-                parkingLot.setParkingSpace(mapper.convertToEntity(parkingLotDTO.getParkingSpace()));
-            }
 
             return parkingLot;
         }

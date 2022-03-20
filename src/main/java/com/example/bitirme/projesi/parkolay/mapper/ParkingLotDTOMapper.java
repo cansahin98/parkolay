@@ -16,7 +16,6 @@ public class ParkingLotDTOMapper {
                 .name(parkingLot.getName())
                 .priceByHour(parkingLot.getPriceByHour())
                 .location(parkingLot.getLocation())
-                .parkingSpace(parkingLot.getParkingSpace())
                 .build();
     }
 

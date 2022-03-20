@@ -16,7 +16,6 @@ public class UserDTO {
     private String password;
     private String name;
     private boolean isParked;
-    private ParkingLotDTO parkingLot;
     private PaymentDTO payment;
 
     public UserDTO() {
@@ -29,7 +28,6 @@ public class UserDTO {
         this.password = builder.password;
         this.name = builder.name;
         this.isParked = builder.isParked;
-        this.parkingLot = builder.parkingLot;
         this.payment = builder.payment;
     }
 
@@ -50,7 +48,6 @@ public class UserDTO {
         private String password;
         private String name;
         private boolean isParked;
-        private ParkingLotDTO parkingLot;
         private PaymentDTO payment;
 
         private Builder() {
@@ -63,7 +60,6 @@ public class UserDTO {
             this.password = userDTO.password;
             this.name = userDTO.name;
             this.isParked = userDTO.isParked;
-            this.parkingLot = userDTO.parkingLot;
             this.payment = userDTO.payment;
         }
 
@@ -95,15 +91,6 @@ public class UserDTO {
             this.isParked = isParked;
             return this;
         }
-        public Builder parkingLot(final ParkingLot parkingLot) {
-            if(parkingLot == null){
-                this.parkingLot = null;
-                return this;
-            }
-            ParkingLotDTOMapper mapper = new ParkingLotDTOMapper();
-            this.parkingLot = mapper.map(parkingLot);
-            return this;
-        }
         public Builder payment(final Payment payment) {
             if(payment == null){
                 this.payment = null;
@@ -122,16 +109,8 @@ public class UserDTO {
             user.setPassword(userDTO.password);
             user.setName(userDTO.name);
             user.setParked(userDTO.isParked);
-            //user.setParkingLot(userDTO.parkingLot);
             //user.setPayment(userDTO.payment);
 
-            if (userDTO.getParkingLot() == null)
-            {
-                user.setParkingLot(null);
-            }else {
-                ParkingLotDTOMapper mapper1 = new ParkingLotDTOMapper();
-                user.setParkingLot(mapper1.convertToEntity(userDTO.getParkingLot()));
-            }
 
             if (userDTO.getPayment() == null)
             {

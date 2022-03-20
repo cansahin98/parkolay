@@ -1,8 +1,11 @@
 package com.example.bitirme.projesi.parkolay.service;
 
+import com.example.bitirme.projesi.parkolay.dto.ParkingLotDTO;
 import com.example.bitirme.projesi.parkolay.dto.UserDTO;
+import com.example.bitirme.projesi.parkolay.entity.ParkingLot;
 import com.example.bitirme.projesi.parkolay.entity.User;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
@@ -15,6 +18,9 @@ public interface UserService {
     Optional<User> findUser(Long id);
 
     User findUserByMail(String mail);
+
+    List<ParkingLotDTO> findParkingLotByUserId(Long userId);
+
 }
 
 

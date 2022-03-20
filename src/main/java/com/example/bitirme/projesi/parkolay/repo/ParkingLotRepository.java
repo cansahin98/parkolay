@@ -8,9 +8,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface UserRepository extends CrudRepository<User,Long> {
-    User findByMailAndPassword(String userName, String password);
-    User findByMail(String mail);
+public interface ParkingLotRepository extends CrudRepository<ParkingLot,Long> {
+
 }
-
-
