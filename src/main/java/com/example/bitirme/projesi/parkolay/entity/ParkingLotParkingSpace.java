@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 public class ParkingLotParkingSpace {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @ManyToOne

@@ -20,7 +20,7 @@ public class ParkingSpaceController extends AbstractResponsePayload {
     @PostMapping(value = "/save")
     public ResponsePayload saveParkingSpace(@RequestBody ParkingSpaceDTO parkingSpaceDTO)
     {
-        parkingSpaceDTO = ParkingSpaceDTO.Builder.ParkingSpaceWith(parkingSpaceDTO).isEmpty(true).build();
+        parkingSpaceDTO = ParkingSpaceDTO.Builder.ParkingSpaceWith(parkingSpaceDTO).build();
         ParkingSpace save = parkingSapceService.saveParkingSpace(parkingSpaceDTO);
         if (save == null)
         {

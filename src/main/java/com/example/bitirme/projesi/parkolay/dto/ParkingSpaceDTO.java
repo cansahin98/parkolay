@@ -9,7 +9,7 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public class ParkingSpaceDTO {
     private long id;
     private String description;
-    private boolean isEmpty;
+    private Integer isVacant;
     private String floor;
 
     public ParkingSpaceDTO(){
@@ -17,7 +17,7 @@ public class ParkingSpaceDTO {
     public ParkingSpaceDTO(Builder builder){
         this.id = builder.id;
         this.description = builder.description;
-        this.isEmpty = builder.isEmpty;
+        this.isVacant = builder.isVacant;
         this.floor = builder.floor;
     }
 
@@ -34,7 +34,7 @@ public class ParkingSpaceDTO {
     public static class Builder {
         private long id;
         private String description;
-        private boolean isEmpty;
+        private Integer isVacant;
         private String floor;
 
         private Builder() {
@@ -43,7 +43,7 @@ public class ParkingSpaceDTO {
         {
             this.id = parkingSpaceDTO.id;
             this.description = parkingSpaceDTO.description;
-            this.isEmpty = parkingSpaceDTO.isEmpty;
+            this.isVacant = parkingSpaceDTO.isVacant;
             this.floor = parkingSpaceDTO.floor;
         }
 
@@ -63,8 +63,8 @@ public class ParkingSpaceDTO {
             this.description = description;
             return this;
         }
-        public Builder isEmpty(final Boolean isEmpty) {
-            this.isEmpty = isEmpty;
+        public Builder isVacant(final Integer isVacant) {
+            this.isVacant = isVacant;
             return this;
         }
         public Builder floor(final String floor) {
@@ -77,7 +77,7 @@ public class ParkingSpaceDTO {
             ParkingSpace parkingSpace = new ParkingSpace();
             parkingSpace.setId(parkingSpaceDTO.id);
             parkingSpace.setDescription(parkingSpaceDTO.description);
-            parkingSpace.setEmpty(parkingSpaceDTO.isEmpty);
+            parkingSpace.setIsVacant(parkingSpaceDTO.isVacant);
             parkingSpace.setFloor(parkingSpaceDTO.floor);
 
             return parkingSpace;

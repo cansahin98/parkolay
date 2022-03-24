@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Getter
 public class LicensePlate {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     @Column(name = "license_plate_data")
     private String licensePlateData;

@@ -11,6 +11,7 @@ import javax.persistence.*;
 @Getter
 public class User {
     @Id
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private Long id;
     private String mail;
     private String password;

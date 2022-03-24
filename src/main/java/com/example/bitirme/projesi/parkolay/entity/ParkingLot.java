@@ -13,6 +13,7 @@ import java.util.Date;
 @Getter
 public class ParkingLot {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
     @Column(name = "price_by_hour")
