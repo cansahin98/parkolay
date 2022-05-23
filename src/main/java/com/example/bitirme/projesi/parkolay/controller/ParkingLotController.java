@@ -12,6 +12,7 @@ import com.example.bitirme.projesi.parkolay.mapper.ParkingSpaceDTOMapper;
 import com.example.bitirme.projesi.parkolay.service.ParkingLotService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -63,8 +64,7 @@ public class ParkingLotController extends AbstractResponsePayload {
     public ResponsePayload calculatePercentageOfParkingLot(@RequestParam("parkingLotId") Long parkingLotId)
     {
         String percentage = parkingLotService.calculatePercentage(parkingLotId);
-        //return getResponse()
-        return null;
+        return getResponse(percentage);
     }
 
 

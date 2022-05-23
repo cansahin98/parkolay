@@ -12,7 +12,8 @@ import java.util.Date;
 @Getter
 public class ParkingHistory {
     @Id
-    private long id;
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Long id;
     @Column(name = "check_in_date")
     private Date checkInDate;
     @Column(name = "check_out_date")

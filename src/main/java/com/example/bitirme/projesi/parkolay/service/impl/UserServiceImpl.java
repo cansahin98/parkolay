@@ -2,10 +2,13 @@ package com.example.bitirme.projesi.parkolay.service.impl;
 
 
 import com.example.bitirme.projesi.parkolay.dto.ParkingLotDTO;
+import com.example.bitirme.projesi.parkolay.dto.PaymentDTO;
 import com.example.bitirme.projesi.parkolay.dto.UserDTO;
 import com.example.bitirme.projesi.parkolay.dto.UserSavedParkingLotDTO;
 import com.example.bitirme.projesi.parkolay.entity.ParkingLot;
+import com.example.bitirme.projesi.parkolay.entity.Payment;
 import com.example.bitirme.projesi.parkolay.entity.User;
+import com.example.bitirme.projesi.parkolay.mapper.PaymentDTOMapper;
 import com.example.bitirme.projesi.parkolay.mapper.UserDTOMapper;
 import com.example.bitirme.projesi.parkolay.mapper.UserSavedParkingLotDTOMapper;
 import com.example.bitirme.projesi.parkolay.repo.UserRepository;
@@ -28,6 +31,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserSavedParkingLotRepository userSavedParkingLotRepo;
     private final UserSavedParkingLotDTOMapper userSavedParkingLotDTOMapper;
+    private final PaymentDTOMapper paymentDTOMapper;
 
     @Override
     public Optional<User> findUser(Long id)
@@ -72,5 +76,23 @@ public class UserServiceImpl implements UserService {
         }
 
         return parkingLotDTOList;
+    }
+
+    @Override
+    public User savePayment(Long id,PaymentDTO paymentDTO) {
+        Optional<User> user = findUser(id);
+        if (user != null)
+        {
+            user.get().setPayment(paymentDTOMapper.convertToEntity(paymentDTO));
+            return saveUser(mapper.map(user.get()));
+        }
+        return null;
+    }
+
+    @Override
+    public Payment findPaymentByUserId(Long userId) {
+
+        Optional<User> user = findUser(userId);
+        return user.get().getPayment();
     }
 }

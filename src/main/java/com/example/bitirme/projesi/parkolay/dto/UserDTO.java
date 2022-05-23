@@ -127,7 +127,4 @@ public class UserDTO {
             return new UserDTO(this);
         }
     }
-
-
-
 }

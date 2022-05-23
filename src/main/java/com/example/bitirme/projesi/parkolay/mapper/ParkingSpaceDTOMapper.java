@@ -14,7 +14,7 @@ public class ParkingSpaceDTOMapper {
         return ParkingSpaceDTO.Builder.ParkingSpaceWith()
                 .id(parkingSpace.getId())
                 .description(parkingSpace.getDescription())
-                .isEmpty(parkingSpace.isEmpty())
+                .isVacant(parkingSpace.getIsVacant())
                 .floor(parkingSpace.getFloor())
                 .build();
     }

@@ -3,10 +3,7 @@ package com.example.bitirme.projesi.parkolay.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -15,6 +12,7 @@ import java.util.Date;
 @Getter
 public class Payment {
     @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     @Column(name = "card_number")
     private int cardNumber;

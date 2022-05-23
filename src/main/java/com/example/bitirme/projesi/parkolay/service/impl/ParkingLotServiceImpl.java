@@ -63,18 +63,18 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     public String calculatePercentage(Long parkingLotId) {
         List<ParkingSpaceDTO> parkingSpaceDTOList = listAllParkingSpacesByParkingLotId(parkingLotId);
         Integer counterOfParkingSpaces = parkingSpaceDTOList.size();
-        parkingSpaceDTOList = listAllVacantParkingSpacesByParkingLotId(parkingLotId);
-        //Integer counterOfOccupiedParkingSpaces = list
-        return null;
+        Integer counterOfVacantParkingSpaces = listAllVacantParkingSpacesByParkingLotId(parkingLotId).size();
+        Float counterOfOccupiedParkingSpaces = 100 - (counterOfVacantParkingSpaces.floatValue()) / (counterOfParkingSpaces.floatValue()) * 100;
+        return "%" + counterOfOccupiedParkingSpaces;
     }
 
     public List<ParkingSpaceDTO> listAllVacantParkingSpacesByParkingLotId(Long parkingLotId) {
- //       List<ParkingLotParkingSpaceDTO> parkingLotParkingSpaceDTOList = parkingLotParkingSpaceDTOMapper.mapList(parkingLotParkingSpaceRepo.findAllByParkingLot_IdAndParkingSpace_Empty(parkingLotId, true));
+        List<ParkingLotParkingSpaceDTO> parkingLotParkingSpaceDTOList = parkingLotParkingSpaceDTOMapper.mapList(parkingLotParkingSpaceRepo.findAllByParkingLot_IdAndParkingSpace_IsVacant(parkingLotId, 1));
         List<ParkingSpaceDTO> parkingSpaceDTOList = new ArrayList<>();
- //       for (ParkingLotParkingSpaceDTO parkingLotParkingSpaceDTO : parkingLotParkingSpaceDTOList)
- //       {
- //           parkingSpaceDTOList.add(parkingLotParkingSpaceDTO.getParkingSpace());
-//        }
+        for (ParkingLotParkingSpaceDTO parkingLotParkingSpaceDTO : parkingLotParkingSpaceDTOList)
+        {
+            parkingSpaceDTOList.add(parkingLotParkingSpaceDTO.getParkingSpace());
+        }
         return parkingSpaceDTOList;
     }
 }
