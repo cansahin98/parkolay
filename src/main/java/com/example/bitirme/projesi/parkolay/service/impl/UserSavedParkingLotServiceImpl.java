@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class UserSavedParkingLotServiceImpl implements UserSavedParkingLotService {
+public class UserSavedParkingLotServiceImpl implements UserSavedParkingLotService  {
     private final UserSavedParkingLotRepository repo;
     private final UserSavedParkingLotDTOMapper mapper;
 

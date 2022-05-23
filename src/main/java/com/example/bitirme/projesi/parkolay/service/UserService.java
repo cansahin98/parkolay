@@ -1,8 +1,10 @@
 package com.example.bitirme.projesi.parkolay.service;
 
 import com.example.bitirme.projesi.parkolay.dto.ParkingLotDTO;
+import com.example.bitirme.projesi.parkolay.dto.PaymentDTO;
 import com.example.bitirme.projesi.parkolay.dto.UserDTO;
 import com.example.bitirme.projesi.parkolay.entity.ParkingLot;
+import com.example.bitirme.projesi.parkolay.entity.Payment;
 import com.example.bitirme.projesi.parkolay.entity.User;
 
 import java.util.List;
@@ -21,6 +23,9 @@ public interface UserService {
 
     List<ParkingLotDTO> findParkingLotByUserId(Long userId);
 
+    User savePayment(Long id,PaymentDTO paymentDTO);
+
+    Payment findPaymentByUserId(Long userId);
 }
 
 

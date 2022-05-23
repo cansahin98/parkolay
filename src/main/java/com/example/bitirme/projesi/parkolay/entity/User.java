@@ -18,7 +18,7 @@ public class User {
     private String name;
     @Column(name = "is_parked")
     private boolean isParked;
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "payment_id")
     private Payment payment;
 

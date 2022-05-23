@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface ParkingLotParkingSpaceRepository extends CrudRepository<ParkingLotParkingSpace, Long> {
     List<ParkingLotParkingSpace> findAllByParkingLot_Id(Long parkingLotId);
-    List<ParkingLotParkingSpace> findAllByParkingLot_IdAndParkingSpace_IsVacant(Long parkingLotId, Integer isParkingSpaceEmpty); //:TODO
+    List<ParkingLotParkingSpace> findAllByParkingLot_IdAndParkingSpace_IsVacant(Long parkingLotId, Integer isParkingSpaceEmpty);
+    ParkingLotParkingSpace findParkingLotParkingSpaceByParkingLot_IdAndParkingSpace_Description(Long parkingLotId, String parkingSpaceDescription);
 
 }

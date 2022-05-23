@@ -64,8 +64,7 @@ public class ParkingLotController extends AbstractResponsePayload {
     public ResponsePayload calculatePercentageOfParkingLot(@RequestParam("parkingLotId") Long parkingLotId)
     {
         String percentage = parkingLotService.calculatePercentage(parkingLotId);
-        //return getResponse()
-        return null;
+        return getResponse(percentage);
     }
 
 
